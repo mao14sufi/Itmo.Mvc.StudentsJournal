@@ -1,1 +1,1 @@
-# Itmo.Mvc.StudentsJournal
+My MVC project
