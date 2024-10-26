@@ -1,0 +1,13 @@
+﻿@model Itmo.Mvc.StudentsJournal.Models.GradeLog
+@{
+	ViewData["Title"] = "Delete";
+}
+<h3>Delete an item. Are you sure?</h3>
+<p>@Model.subjectName</p>
+<p>@Model.student?.Name</p>
+<p>@Model.grade</p>
+<p>@Model.date</p>
+<form asp-action="Delete" method="post">
+	<input type="hidden" asp-for="id" />
+	<input type="submit" class="btn-danger" value="Delete" />
+</form>

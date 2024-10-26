@@ -1,0 +1,97 @@
+﻿@model List<Itmo.Mvc.StudentsJournal.Models.GradeLog>
+
+@{
+	ViewData["Title"] = "Index";
+	
+}
+<div class="col-md-3">
+	<a asp-action="Create" >Добавить запись</a>
+</div >
+<div style="display:flex">
+<div class ="col-md-6">
+<table class="table"  >
+			<h3>Журнал оценок</h3>
+	<thead>
+		<tr>
+			<th>Предмет</th>
+			<th>Студент</th>
+			<th>Оценка</th>
+			<th>Дата</th>
+		</tr>
+	</thead>
+	<tbody>
+		@foreach(var log in Model)
+		{
+			<tr>
+				<td>@log.subjectName</td>
+				<td>@log.student?.Name</td>				
+				<td>@log.grade</td>
+				<td>@log.date</td>
+				<td>
+					<a asp-action="Edit" asp-route-id="@log.id">Edit</a>
+					<a asp-action="Delete" asp-route-id="@log.id">Delete</a>
+				</td>
+			</tr>
+		}
+	</tbody>
+</table>
+</div>
+<div class="col-md-3">
+	<table class="table">
+			<h3>5 лучших студентов</h3>
+			<thead>
+				<tr>
+					<th>Студент</th>
+					<th>Сумма баллов</th>
+					
+				</tr>
+			</thead>
+		
+		
+		
+		
+		
+		<tbody>
+				@for ( int i=0 ; i<ViewBag.FiveBestStudents.Count ;i++)
+				{
+					<tr>
+						<td>@ViewBag.FiveBestStudents[i].Item1</td>
+						<td>@ViewBag.FiveBestStudents[i].Item2</td>
+						
+					</tr>
+				}
+				
+		</tbody>
+	</table>
+		<a asp-action="WritetoFileBest">Записать в файл</a>
+</div>
+	<div class="col-md-3">
+		<table class="table">
+			<h3>5 худших студентов</h3>
+			<thead>
+				<tr>
+					<th>Студент</th>
+					<th>Сумма баллов</th>
+
+				</tr>
+			</thead>
+
+
+
+
+
+			<tbody>
+				@for (int i = 0; i < ViewBag.FiveWorstStudents.Count; i++)
+				{
+					<tr>
+						<td>@ViewBag.FiveWorstStudents[i].Item1</td>
+						<td>@ViewBag.FiveWorstStudents[i].Item2</td>
+
+					</tr>
+				}
+
+			</tbody>
+		</table>
+		<a asp-action="WritetoFileWorst">Записать в файл</a>
+	</div>
+</div>

@@ -1,0 +1,5 @@
+(kelly, 14)
+(ignat, 12)
+(gosha, 7)
+(ivanov vv, 5)
+(kalov, 4)

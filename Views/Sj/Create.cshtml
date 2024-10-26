@@ -1,0 +1,30 @@
+﻿@model Itmo.Mvc.StudentsJournal.Models.GradeLog
+@{
+    ViewData["Title"] = "Create";
+}
+<form asp-action="Create" method="post">
+	<div asp-validation-summary="ModelOnly" class="text-danger"></div>
+	<div class="form-group">
+		<label for="subjectName">Предмет</label>
+		<select asp-for="subjectName" asp-items="ViewBag.Subjects" class="form-control"></select>
+	</div>
+	<div class="form-group">
+		<label for="studentId">Студент</label>
+		<select asp-for="studentId" asp-items="ViewBag.Students" class="form-control"></select>
+	</div>
+	<div class="form-group">
+		<label for="grade">Оценка</label>
+		<input type="number" class="form-control" asp-for="grade" />
+		<span asp-validation-for="grade" class="text-danger"></span>
+	</div>
+	<div class="form-group">
+		<label for="date">Дата</label>
+		<input type="date" class="form-control" asp-for="date" />
+		<span asp-validation-for="date" class="text-danger"></span>
+		<button type="submit" class="btn-primary">Submit</button>
+	</div>
+	
+		
+	
+
+</form>
